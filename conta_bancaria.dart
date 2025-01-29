@@ -9,21 +9,30 @@ class ContaBancaria {
   set saldo( double value) => this._saldo = value;
 
   void depositar(double valor) {
-    print("Saldo: \$$_saldo");
+    if (valor > 0) {
+      print("Saldo: R\$$_saldo");
     _saldo += valor;
-    print("Deposito de: \$$valor \n Saldo atual: \$$_saldo");
+    print("Deposito de: R\$$valor \n Saldo atual: R\$$_saldo");
+    } else {
+      print("Depósito deve ser maior que 0 reais.");
+    }
     
   } 
 
   void sacar(double valor) {
-    print("Saldo: $_saldo");
-    _saldo -= valor;
-    print("Saque de: \$$valor \n Saldo atual: \$$_saldo");
+    if (valor > 0 || valor > _saldo) {
+      print("Saldo: R\$$_saldo");
+      _saldo -= valor;
+      print("Saque de: R\$$valor \n Saldo atual: R\$$_saldo");
+    } else {
+      print("Saque deve ser maior que 0 reais e menor que o saldo.");
+    }
+    
     
   }
 
   void exibirInformacoes() {
-    print("Nome: \$$titular \n Saldo: \$$_saldo");
+    print("Nome: R\$$titular \n Saldo: R\$$_saldo");
   }
   
 }
