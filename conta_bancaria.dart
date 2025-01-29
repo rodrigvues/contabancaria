@@ -10,9 +10,8 @@ class ContaBancaria {
 
   void depositar(double valor) {
     if (valor > 0) {
-      print("Saldo: R\$$_saldo");
     _saldo += valor;
-    print("Deposito de: R\$$valor \n Saldo atual: R\$$_saldo");
+    print("Deposito de: R\$$valor \nSaldo atual: R\$$_saldo");
     } else {
       print("Depósito deve ser maior que 0 reais.");
     }
@@ -20,10 +19,9 @@ class ContaBancaria {
   } 
 
   void sacar(double valor) {
-    if (valor > 0 || valor > _saldo) {
-      print("Saldo: R\$$_saldo");
+    if (valor > 0 && valor < _saldo) {
       _saldo -= valor;
-      print("Saque de: R\$$valor \n Saldo atual: R\$$_saldo");
+      print("Saque de: R\$$valor \nSaldo atual: R\$$_saldo");
     } else {
       print("Saque deve ser maior que 0 reais e menor que o saldo.");
     }
@@ -32,7 +30,7 @@ class ContaBancaria {
   }
 
   void exibirInformacoes() {
-    print("Nome: R\$$titular \n Saldo: R\$$_saldo");
+    print("Nome: $titular \nSaldo: R\$$_saldo");
   }
   
 }
